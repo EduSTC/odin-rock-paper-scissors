@@ -29,13 +29,15 @@ function playerSelection() {
 }
 
 function winnerCalculation() {
-    if ((getComputerChoice() === "rock" && playerSelection() === "paper") ||
-    (getComputerChoice() === "paper" && playerSelection() === "scissor") ||
-    (getComputerChoice() === "scissor" && playerSelection() === "rock")) {
+    computerChoice = getComputerChoice();
+    playerChoice = playerSelection();
+    if ((computerChoice === "rock" && playerChoice === "paper") ||
+    (computerChoice === "paper" && playerChoice === "scissor") ||
+    (computerChoice === "scissor" && playerChoice === "rock")) {
         return 1;
-    } else if ((getComputerChoice() === "paper" && playerSelection() === "rock") ||
-    (getComputerChoice() === "scissor" && playerSelection() === "paper") ||
-    (getComputerChoice() === "rock" && playerSelection() === "scissor")) {
+    } else if ((computerChoice === "paper" && playerChoice === "rock") ||
+    (computerChoice === "scissor" && playerChoice === "paper") ||
+    (computerChoice === "rock" && playerChoice === "scissor")) {
         return 0;
     } else {
         return 2;
@@ -43,7 +45,19 @@ function winnerCalculation() {
 }
 
 function playRound() {
-
+    winner = "";
+    switch (winnerCalculation()) {
+        case 0:
+            winner = "computer";
+            break;
+        case 1:
+            winner = "player";
+            break;
+        case 2:
+            winner = "tie!";
+            break;
+    }
+    return winner;
 }
 
 
