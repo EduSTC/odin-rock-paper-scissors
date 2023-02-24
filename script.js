@@ -3,7 +3,10 @@ console.log("Welcome to the Rocker, Paper and Scissors game!");
 
 
 
-// get computer choice function
+/*
+* requires: nothing
+* effects: returns one string containing rock, paper or scissor
+*/
 function getComputerChoice() {
     choice = Math.floor(Math.random() * 3);
     switch (choice) {
@@ -19,9 +22,31 @@ function getComputerChoice() {
     return choice;
 }
 
-console.log(getComputerChoice());
-// function to generate a random number
-// function to associate the number to the object
+
+function playerSelection() {
+    choice = prompt("Choose rock, paper or scissor:").trim().toLowerCase();
+    return choice;
+}
+
+function winnerCalculation() {
+    if ((getComputerChoice() === "rock" && playerSelection() === "paper") ||
+    (getComputerChoice() === "paper" && playerSelection() === "scissor") ||
+    (getComputerChoice() === "scissor" && playerSelection() === "rock")) {
+        return 1;
+    } else if ((getComputerChoice() === "paper" && playerSelection() === "rock") ||
+    (getComputerChoice() === "scissor" && playerSelection() === "paper") ||
+    (getComputerChoice() === "rock" && playerSelection() === "scissor")) {
+        return 0;
+    } else {
+        return 2;
+    }
+}
+
+function playRound() {
+
+}
+
+
 
 // get player selection function
 // get computer selection function
