@@ -23,11 +23,20 @@ function getComputerChoice() {
 }
 
 
+/*
+* requires: a case-insensitive string of rock, paper or scissor
+* effects: returns one string containing rock, paper or scissor
+*/
 function playerSelection() {
     choice = prompt("Choose rock, paper or scissor:").trim().toLowerCase();
     return choice;
 }
 
+/*
+* requires: nothing
+* effects: returns one number in [0, 2] telling who won
+* 0 - computer, 1 - player, 2 - tie
+*/
 function winnerCalculation() {
     computerChoice = getComputerChoice();
     playerChoice = playerSelection();
@@ -44,6 +53,10 @@ function winnerCalculation() {
     }
 }
 
+/*
+* requires: nothing
+* effects: returns the winner in string form
+*/
 function playRound() {
     winner = "";
     switch (winnerCalculation()) {
@@ -60,10 +73,30 @@ function playRound() {
     return winner;
 }
 
+/*
+* requires: nothing
+* effects: returns the winner of the best of five game
+*/
+function playGame() {
+    playerCount = 0;
+    computerCount = 0;
+    while (playerCount != 5 && computerCount != 5) {
+        switch (playRound()) {
+            case "computer":
+                computerCount++;
+                break;
+            case "player":
+                playerCount++;
+                break;
+            case "tie":
+                break;
+        }
+        console.log("Player: " + playerCount + " points.");
+        console.log("Computer: " + computerCount + " points.");
 
 
-// get player selection function
-// get computer selection function
-// tell who won
-// count the points
-// define the number of rounds played
+    }
+
+    alert("Congratulations " + winner + " , you won!");
+}
+
