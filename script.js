@@ -1,5 +1,6 @@
 // welcome to the game
 console.log("Welcome to the Rocker, Paper and Scissors game!");
+console.log(playGame());
 
 
 
