@@ -1,39 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js"></script>
-    <style src="style.css"></style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <div id="header">
         <h1>Master the Elements</h1>
     </div>
-    <div id="game">
-        <h2>Choose your Element</h2>
-        <h3>First to 5 Wins!</h3>
-        <div id="buttons">
-            <button id="fire"><img src="#"></button>
-            <button id="water"><img src="#"></button>
-            <button id="ice"><img src="#"></button>
-        </div>
-        <div id="score">
-            <div id="player-score">
-                <h4>5</h4>
+    <div id="content">
+        <div id="game">
+            <h2>Choose your Element...</h2>
+            <h2 id="h2-strength">and Fight!</h2>
+            <h3>First to 5 Wins!</h3>
+            <div id="buttons">
+                <button id="fire"><img src="images/fire-svgrepo-com.svg"></button>
+                <button id="water"><img src="images/water-svgrepo-com.svg"></button>
+                <button id="ice"><img src="images/ice-svgrepo-com.svg"></button>
             </div>
-            <div id="computer-score">
-                <h4>3</h4>
+            <div id="score">
+                <div id="player-score">
+                    <img src="images/controller-svgrepo-com.svg">
+                    <h4>0</h4>
+                </div>
+                <div id="computer-score">
+                    <img src="images/computer-svgrepo-com.svg">
+                    <h4>0</h4>
+                </div>
             </div>
+            <div id="result">
+                <h2>...</h2>
+            </div>
+            <button id="play-again">Play Again!</button>
         </div>
-        <h2 id="Result"></h2>
-        <button id="play-again">Play Again!</button>
     </div>
     <div id="footer">
-        <div id="">Made by Edu!</div>
+        <p>Made by Eduardo Smallwood!</p>
+        <a href="https://github.com/EduSTC"><img id="github-icon" src="images/iconmonstr-github-1.svg"></a>
     </div>
-    
+
+
 </body>
+
 </html>
