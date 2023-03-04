@@ -1,102 +1,80 @@
-// welcome to the game
-console.log("Welcome to the Rocker, Paper and Scissors game!");
+
+let playerCount = parseInt(document.getElementById('player-score').textContent);
+let computerCount = parseInt(document.getElementById('computer-score').textContent);
+
+const buttons = document.querySelectorAll(".choice");
+buttons.forEach((button) => {
+    button.addEventListener('click', function game() {
+        if (!(playerCount >= 5 || computerCount >= 5)) {
+            playGame(button.value);
+        }
+    });
+ });
 
 
 
-/*
-* requires: nothing
-* effects: returns one string containing rock, paper or scissor
-*/
+playAgainButton = document.getElementById('play-again');
+playAgainButton.addEventListener('click', () => {
+    location.reload();
+})
+
+
 function getComputerChoice() {
-    choice = Math.floor(Math.random() * 3);
+    let choice = Math.floor(Math.random() * 3);
     switch (choice) {
         case 0:
-            choice = "rock";
+            choice = "fire";
             break;
         case 1:
-            choice = "paper";
+            choice = "water";
             break;
         case 2:
-            choice = "scissor";
+            choice = "ice";
     }
     return choice;
 }
 
 
-/*
-* requires: a case-insensitive string of rock, paper or scissor
-* effects: returns one string containing rock, paper or scissor
-*/
-function playerSelection() {
-    choice = prompt("Choose rock, paper or scissor:").trim().toLowerCase();
-    return choice;
-}
 
-/*
-* requires: nothing
-* effects: returns one number in [0, 2] telling who won
-* 0 - computer, 1 - player, 2 - tie
-*/
-function winnerCalculation() {
+
+function playRound(playerChoice) {
     computerChoice = getComputerChoice();
-    playerChoice = playerSelection();
-    if ((computerChoice === "rock" && playerChoice === "paper") ||
-    (computerChoice === "paper" && playerChoice === "scissor") ||
-    (computerChoice === "scissor" && playerChoice === "rock")) {
-        return 1;
-    } else if ((computerChoice === "paper" && playerChoice === "rock") ||
-    (computerChoice === "scissor" && playerChoice === "paper") ||
-    (computerChoice === "rock" && playerChoice === "scissor")) {
-        return 0;
+    if ((computerChoice === "fire" && playerChoice === "water") ||
+    (computerChoice === "water" && playerChoice === "ice") ||
+    (computerChoice === "ice" && playerChoice === "fire")) {
+        return "player";
+    } else if ((computerChoice === "water" && playerChoice === "fire") ||
+    (computerChoice === "ice" && playerChoice === "water") ||
+    (computerChoice === "fire" && playerChoice === "ice")) {
+        return "computer";
     } else {
-        return 2;
+        return "tie";
     }
 }
 
-/*
-* requires: nothing
-* effects: returns the winner in string form
-*/
-function playRound() {
-    winner = "";
-    switch (winnerCalculation()) {
-        case 0:
-            winner = "computer";
+
+function playGame(playerChoice) {
+    switch (playRound(playerChoice)) {
+        case "computer":
+            computerCount++;
             break;
-        case 1:
-            winner = "player";
+        case "player":
+            playerCount++;
             break;
-        case 2:
-            winner = "tie!";
+        case "tie":
             break;
     }
-    return winner;
-}
+    document.getElementById('computer-score').textContent = computerCount.toString();
+    document.getElementById('player-score').textContent = playerCount.toString();
 
-/*
-* requires: nothing
-* effects: returns the winner of the best of five game
-*/
-function playGame() {
-    playerCount = 0;
-    computerCount = 0;
-    while (playerCount != 5 && computerCount != 5) {
-        switch (playRound()) {
-            case "computer":
-                computerCount++;
-                break;
-            case "player":
-                playerCount++;
-                break;
-            case "tie":
-                break;
-        }
-        console.log("Player: " + playerCount + " points.");
-        console.log("Computer: " + computerCount + " points.");
-
-
+    resultText = document.querySelector('#result > h2');
+    if (playerCount == 5) {
+        resultText.style.cssText = 'color: #81fc81';
+        resultText.textContent = "Player Wins!"
+    } else if (computerCount == 5) {
+        document.querySelector('#result > h2').textContent = "Computer Wins!!!";
     }
-
-    alert("Congratulations " + winner + " , you won!");
 }
+
+
 

@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -21,18 +21,18 @@
             <h2 id="h2-strength">and Fight!</h2>
             <h3>First to 5 Wins!</h3>
             <div id="buttons">
-                <button id="fire"><img src="images/fire-svgrepo-com.svg"></button>
-                <button id="water"><img src="images/water-svgrepo-com.svg"></button>
-                <button id="ice"><img src="images/ice-svgrepo-com.svg"></button>
+                <button id="fire" class="choice" value = "fire" ><img src="images/fire-svgrepo-com.svg"></button>
+                <button id="water" class="choice" value = "water" ><img src="images/water-svgrepo-com.svg"></button>
+                <button id="ice" class="choice" value = "ice" ><img src="images/ice-svgrepo-com.svg"></button>
             </div>
             <div id="score">
-                <div id="player-score">
+                <div>
                     <img src="images/controller-svgrepo-com.svg">
-                    <h4>0</h4>
+                    <h4 id="player-score">0</h4>
                 </div>
-                <div id="computer-score">
+                <div>
                     <img src="images/computer-svgrepo-com.svg">
-                    <h4>0</h4>
+                    <h4  id="computer-score">0</h4>
                 </div>
             </div>
             <div id="result">
@@ -45,8 +45,6 @@
         <p>Made by Eduardo Smallwood!</p>
         <a href="https://github.com/EduSTC"><img id="github-icon" src="images/iconmonstr-github-1.svg"></a>
     </div>
-
-
 </body>
 
 </html>
