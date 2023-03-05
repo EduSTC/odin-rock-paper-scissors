@@ -143,3 +143,9 @@ img {
     height: 100%;
     width: 100%;
 }
+
+#explanation > h3 {
+    text-align: center;
+    color: #a86d15;
+    font-weight: 800;
+}

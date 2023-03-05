@@ -69,9 +69,10 @@ function playGame(playerChoice) {
 
     resultText = document.querySelector('#result > h2');
     if (playerCount == 5) {
-        resultText.style.cssText = 'color: #81fc81';
+        resultText.style.cssText = 'color: #69e91f';
         resultText.textContent = "Player Wins!"
     } else if (computerCount == 5) {
+        resultText.style.cssText = 'color: #e02200ce;';
         document.querySelector('#result > h2').textContent = "Computer Wins!!!";
     }
 }
